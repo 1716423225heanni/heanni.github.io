@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/all.css">
+    <link rel="stylesheet" href="./CSS/completionReport.css">
+</head>
+
+
+<script>
+
+</script>
+<body>
+    <img
+        src="./img/background.jpg"
+        class="background">
+    </img>
+    <div >
+    <div  class="nav-wrap">
+        <div  class="logo-wrapper"><img  
+                src="https://webstatic.mihoyo.com/upload/event/2022/07/29/c31dd1d732913e4ab5f3d4f03346a706_9097205533659112586.png">
+        </div>
+        <ul  class="nav-list">
+            <li ><a  href="./index.html" target="_self">
+                首页
+        </a></li>
+            <li ><a  href="./news.html" target="_self">
+                        新闻
+                </a></li>
+            <li ><a  href="./character.html" target="_self">
+                        角色
+                </a></li>
+                <li><a href="./world1.html" target="_self">
+                    空间站『黑塔』
+                </a></li>
+            <li><a href="./world2.html" target="_self">
+                    雅利洛-VI
+            </a></li>
+            <li><a href="./world3.html" target="_self">
+                    仙舟『罗浮』
+            </a></li>
+            <li ><a  href="./completionReport.html" target="_self">
+                结业报告
+            </a></li>
+        </ul>
+    </div>
+    <div class="completion-report">
+        <div class="mid">
+        <div class="report-title">
+           <div class="text">
+               结业报告
+           </div>
+        </div>
+        <div class="main-body">
+          本次Web结业项目，我做的是一个静态网站，采用纯CSS，主题为游戏。
+          这是我第一次采用纯CSS的方式制作网页，相比较之前使用CSS框架制作这样的确要麻烦不少，开发过程大致是首先确定主题，然后先搭建大致内容框架（导航栏，各个页面内容分布），最后分别填充内容。
+          在开发过程中我也遇到了许多问题:
+          首先第一个就是背景大小问题，我尝试将背景的父元素设为占满屏幕，预期是背景的大小也会随之改变，不过背景并没有变化。经过查阅，发现要单独设置背景（img，video）元素的大小。
+          第二点也与背景有关，我原本是将背景的父元素的position设为absolute，这样虽然可以使背景放在正确的图层，但是如果页面较长，超过了背景的长度，背景图片之后的区域就是空白的，要实现背景图片永远处于屏幕中，我经过查阅和尝试，我发现position的fixed可以实现该效果，absolute是绝对定位，将我的背景定死在了页面的上方，而fixed可以使背景固定在我的视图内。
+          第三点是导航栏不显示，发现是因为背景设置position为absolute后，导航栏被遮盖了，所以我将导航栏的position设为relative.
+          第四点则是与我的导航栏有关，我在区域规划中将导航栏放置在页面上方，导航栏区域分为两部分，在导航栏前是游戏的图标，后面才是导航，不过当我在设计导航栏时，导航却和图标重叠了，经过调试，发现我的导航所在的父容器设置了position：absolute，导致导航栏直接在其父元素的起始位置了，将其删除，排列正常了。
+          第五点，我将导航栏做好后发现，只有点击导航的文字部分才能正常跳转，而点击它的父元素则不行，经过查阅资料，我发现要将a标签的display属性设为block就可以实现了。
+          第六点，我想要导航栏的交互性更强，所以我使用了hover伪类，将border-bottom属性修改，使得鼠标悬停时出现标识，使用flex-grow让悬停的位置增长，不过因为我之前将每一个导航宽度设为15%，它们和图标加在一起超过了100%，导致flex-grow未生效，所以我将导航宽度设为13%，最后还有transition设为0.25s，这样过度更加自然美观。
+          第七点是关于我的新闻页面部分，我想要在图片底部添加一段标题，将图片和标题都放入一个容器后，标题出现在了图片下方，我直接想使用了bottom=-135px使之平移上去但是有感觉这样不合理，所以我想到了position：absolute，并将bottom设为0，可以达到相同的效果。
+          第七点也是关于我的新闻页面部分，这里我使用的grid布局，问题在于我将各个新闻的区域做好后，我也为它们添加了hover，我使用的是border，但是我在测试是，发现border添加后图片区域的高度会被挤压导致图片扭曲，经过各种测试修改后，我放弃了使用border，转而使用了box-shadow，这样图片区域就不会被挤压，而且效果还不错。
+          第八点，关于我的角色页面，我将角色介绍放在角色展示的左边，有了之前的经验，这部分并无太大问题，在角色展示区域，我想要实现一种更加动态的展示效果，不局限于一张图片，我翻阅视频教程，找到了一个我想要的效果(<a href="https://www.bilibili.com/video/BV1ZL411y7YK/?spm_id_from=333.880.my_history.page.click&vd_source=59e7a7619f4d5e04af71c7ffae4cff2c" target="_blank"> 原教程</a>)我以此为基础，加以自己的想法实现了想要的效果，但是遗憾的是我ps的抠图技术有限，我想抠出完整的角色，但是抠不出来，只能抠出大致轮廓，这是比较遗憾的地方。
+          第九点，关于我的角色页面，最右边的是角色的PV演示，我发现因为之前的区域已经将页面宽度占据大半，剩余位置不足放下视频区域，所以我采用position：absolute绝对定位，并设置margin-left：70%，margin-top：50px，使视频放于该位置。
+          第十点是关于后面的三个地区的介绍，在前面的经验下，排布没有问题。问题在于我实现鼠标悬停事件时，想将最上方的图片从底部放大，而不是中间，所以查阅资料后，我将其transform-origin属性改为bottom，这样就解决了；以及介绍文本的格式，我为p标签设置了white-space: pre-wrap来保留我的空格以达到预期效果，还有介绍文本的容器我设置了margin-inline以使文字与边框保持距离。
+          所遇问题肯定不止这些，但是大致都是图层排布，元素定位，字体格式之类。
+          最后本次web项目是一次有趣的经历，发现问题，解决问题，编程无不如此，相较于我之前的编程经历，网页对于视觉效果的传达让我十分振奋。也希望在未来能跟进前端的发展，这种不断前进也于这款游戏的“开拓”理念不谋而合了，我们都是生活的开拓者。
+          最后，
+          愿此行，终抵群星。
+        </div>
+        </div>
+
+    </div>

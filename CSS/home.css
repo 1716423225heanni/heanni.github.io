@@ -1,0 +1,40 @@
+.show{
+    width: 100%;
+
+    height: 40%;
+    position: absolute;
+    display:flex;
+    justify-content: left;
+    align-items: center;
+    bottom: 0;
+}
+h2{
+    position: relative;
+    width: 40%;
+    height: 150px;
+    font-size: 80px;
+    color: rgba(160, 155, 190, 0.679);
+    opacity: 0.8;
+    transition: 8s;
+}
+h2::before{
+    content: attr(date-text);
+    position: absolute;
+    color: rgb(141, 189, 231);
+    width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: animate 8s linear infinite;
+    filter: drop-shadow(0 0 10px #4a9eed) drop-shadow(0 0 10px #517ef0);
+    opacity: 1;
+}
+@keyframes animate{
+    0%,10%,100%
+    {
+        width: 0%;
+    }
+    70%,90%
+    {
+        width: 100%;
+    }
+}

@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.page-title {
+    position: absolute;
+    top: 150px;
+    left: 200px;
+    width: 260px;
+    height: 65px;
+}
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.nav-wrap{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    background-color: rgb(8, 8, 8, 0.9);
+}
+
+.logo-wrapper {
+    height: 86px;
+    width: 250px;
+}
+
+.logo-wrapper img {
+    height: 130px;
+    width: 250px;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+.nav-list {
+    width: 1400px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.nav-wrap .nav-list li {
+    height: 80px;
+    width: 13%;
+    transition:0.25s;
+    text-align: center;
+}
+
+.nav-wrap .nav-list li::marker {
+    content: '';
+}
+
+.nav-wrap .nav-list li:hover {
+    cursor: pointer;
+    border-bottom: solid 7px rgb(228, 147, 41);
+    flex-grow:0.5;
+}
+
+.nav-wrap a {
+    font-size: 20px;
+    color: rgb(178, 183, 188);
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.evnet-video_inner {
+    position: fixed;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
